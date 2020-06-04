@@ -1,25 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+
+import "./App.css";
+
+import CountryList from "./components/country-list";
+import RegionFilter from "./components/regionFilter";
+import NameFilter from "./components/nameFilter";
+
+const initialState = {
+  countryList: [],
+  countryListByRegion: [],
+  countryListByName: [],
+  region: "none",
+  name: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_COUNTRY_LIST": {
+      return { ...state, countryList: action.payload };
+    }
+    case "SET_REGION": {
+      let countryListByRegion = state.countryList.filter(
+        (country) => country.region === action.payload
+      );
+
+      return {
+        ...state,
+        region: action.payload,
+        countryListByRegion,
+      };
+    }
+    case "SET_NAME": {
+      let countryListByName = state.countryList.filter(
+        (country) => country.name.toLowerCase().includes(action.payload.toLowerCase()) 
+      );
+      return {
+        ...state,
+        countryListByName,
+        name: action.payload
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+  return state;
+}
+
+const store = createStore(reducer, initialState);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <NameFilter />
+        <RegionFilter />
+        <CountryList />
+      </div>
+    </Provider>
   );
 }
 
