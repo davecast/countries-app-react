@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/countries-app-react/static/css/main.a02d6e4d.chunk.css",
+    "main.js": "/countries-app-react/static/js/main.c236899c.chunk.js",
+    "main.js.map": "/countries-app-react/static/js/main.c236899c.chunk.js.map",
+    "runtime-main.js": "/countries-app-react/static/js/runtime-main.56401f43.js",
+    "runtime-main.js.map": "/countries-app-react/static/js/runtime-main.56401f43.js.map",
+    "static/js/2.b2571afa.chunk.js": "/countries-app-react/static/js/2.b2571afa.chunk.js",
+    "static/js/2.b2571afa.chunk.js.map": "/countries-app-react/static/js/2.b2571afa.chunk.js.map",
+    "index.html": "/countries-app-react/index.html",
+    "precache-manifest.d20c25fcf78f99db1603e9daa6a9c9c8.js": "/countries-app-react/precache-manifest.d20c25fcf78f99db1603e9daa6a9c9c8.js",
+    "service-worker.js": "/countries-app-react/service-worker.js",
+    "static/css/main.a02d6e4d.chunk.css.map": "/countries-app-react/static/css/main.a02d6e4d.chunk.css.map",
+    "static/js/2.b2571afa.chunk.js.LICENSE.txt": "/countries-app-react/static/js/2.b2571afa.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/countries-app-react/static/media/icomoon.be551178.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.56401f43.js",
+    "static/js/2.b2571afa.chunk.js",
+    "static/css/main.a02d6e4d.chunk.css",
+    "static/js/main.c236899c.chunk.js"
+  ]
+}
