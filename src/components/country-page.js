@@ -19,9 +19,10 @@ function CountryPage({ match }) {
   const history = useHistory();
   const country = useSelector((state) => state.country);
 
-  console.log(country.length)
   useEffect(() => {
-    fetch(`https://restcountries.eu/rest/v2/name/${match.params.id}`)
+    fetch(
+      `https://restcountries.eu/rest/v2/name/${match.params.id.split('-').join(' ')}`
+    )
       .then((response) => {
         return response.json();
       })
@@ -55,7 +56,7 @@ function CountryPage({ match }) {
           {country.length === 0 ? (
             <Loading />
           ) : (
-            <CountryDetail country={country[0]} />
+            <CountryDetail {...country[0]} />
           )}
         </div>
       </Wrapper>

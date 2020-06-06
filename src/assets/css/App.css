@@ -51,11 +51,39 @@ html {
 }
 
 body {
+  font-family: 'Nunito Sans', sans-serif; 
+}
+
+main {
   background-color: var(--grey-light);
-  font-family: 'Nunito Sans', sans-serif;
   color: var(--black);
+  min-height: 100vh;
 }
 
 .section {
   padding: 25px 0 0;
+}
+
+.is__darkmode {
+  --black: white;
+  --white: hsl(209, 23%, 22%);
+  --grey-light:  hsl(207, 26%, 17%);
+  --grey-dark: white;
+  --grey-placeholder: white;
+}
+.is__ligthmode {
+  --black: #111517;
+  --white: #fff;
+  --grey-light: hsl(0, 29%, 95%);
+  --grey-dark: hsl(0, 0%, 52%);
+  --grey-placeholder: #c4c4c4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: white;
+    --white: hsl(209, 23%, 22%);
+    --grey-light:  hsl(207, 26%, 17%);
+    --grey-dark: white;
+    --grey-placeholder: white;
+  }
 }

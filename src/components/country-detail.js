@@ -27,11 +27,21 @@ const CounttyDetailStyled = styled.article`
     }
   }
   .borderCountries {
-
   }
 `;
 
-function CountryDetail({ country }) {
+function CountryDetail({
+  name,
+  flag,
+  nativeName,
+  population,
+  region,
+  subregion,
+  capital,
+  topLevelDomain,
+  currencies,
+  languages
+}) {
   function concatStr(datos) {
     let strContact = "";
     datos.forEach((element, index) => {
@@ -47,43 +57,40 @@ function CountryDetail({ country }) {
   return (
     <CounttyDetailStyled>
       <figure>
-        <img loading="lazy" src={country.flag} alt={country.name} />
+        <img loading="lazy" src={flag} alt={name} />
       </figure>
-      <h2 className="title">{country.name}</h2>
+      <h2 className="title">{name}</h2>
       <div className="details">
         <div className="details__left">
           <p>
-            <span>Native Name:</span> {country.nativeName}
+            <span>Native Name:</span> {nativeName}
           </p>
           <p>
-            <span>Population:</span> {country.population}
+            <span>Population:</span> {population}
           </p>
           <p>
-            <span>Region:</span> {country.region}
+            <span>Region:</span> {region}
           </p>
           <p>
-            <span>Sub Region:</span> {country.subregion}
+            <span>Sub Region:</span> {subregion}
           </p>
           <p>
-            <span>Capital:</span> {country.capital}
+            <span>Capital:</span> {capital}
           </p>
         </div>
         <div className="details__right">
           <p>
-            <span>Top Level Domain:</span>{" "}
-            {country.topLevelDomain.map((tld) => tld)}
+            <span>Top Level Domain:</span> {topLevelDomain}
           </p>
           <p>
-            <span>Currencies:</span> {concatStr(country.currencies)}
+            <span>Currencies:</span> {concatStr(currencies)}
           </p>
           <p>
-            <span>Langueages:</span> {concatStr(country.languages)}
+            <span>Langueages:</span> {concatStr(languages)}
           </p>
         </div>
       </div>
-      <div className="borderCountries">
-        
-      </div>
+      <div className="borderCountries"></div>
     </CounttyDetailStyled>
   );
 }

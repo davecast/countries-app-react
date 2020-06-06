@@ -9,6 +9,8 @@ const RegionFilterStyled = styled.select`
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 9px 0px rgba(0,0,0,0.05);
+  background-color: var(--white);
+  color: var(--black);
 `;
 
 function RegionFilter() {

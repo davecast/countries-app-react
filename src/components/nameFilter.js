@@ -7,7 +7,7 @@ const NameFilterStyled = styled.label`
   display: grid;
   grid-template: 1fr / 80px 1fr;
   color: var(--grey-dark);
-  background-color: #fff;
+  background-color: var(--white);
   box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   position: relative;
@@ -25,8 +25,9 @@ const NameFilterStyled = styled.label`
     -webkit-appearance: none;
     appearance: none;
     border: none;
-    font-size: 1em;
+    font-size: 0.8em;
     height: 48px;
+    background-color: var(--white);
     color: var(--grey-dark);
     padding-right: 40px;
     box-sizing: border-box;
@@ -46,6 +47,7 @@ const NameFilterStyled = styled.label`
     justify-content: center;
     align-items: center;
   }
+  
 `;
 
 function NameFilter() {

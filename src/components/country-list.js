@@ -10,6 +10,9 @@ const CountryListStyled = styled.div`
     display: grid;
     justify-content: center;
     grid-row-gap: 2.3em;
+    grid-column-gap: 80px;
+    grid-auto-flow: columns;
+    grid-template-columns: repeat(auto-fill, 260px);
   }
 `;
 
@@ -38,6 +41,7 @@ function CountryList() {
           type: "SET_COUNTRY_LIST",
           payload: list,
         });
+        console.log(list);
         //setCountryList(data);
       })
       .catch(() => {

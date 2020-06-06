@@ -1,14 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import slugify from "slugify";
 
 const CountryStyled = styled.div`
-  width: 264px;
   text-align: left;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--white);
   overflow: hidden;
   box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 0.1px solid transparent;
+  transition: all .3s ease-in-out;
+  :hover {
+    border: 1px solid var(--grey-dark);
+    box-shadow: 0 7px 7px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px)
+  }
   h2 {
     margin: 0 0 1rem;
     font-size: 1.1em;
@@ -31,7 +40,7 @@ function Country({ flag, name, population, region, capital }) {
   const history = useHistory();
 
   function handleClick() {
-    history.push(`/country/${name}`);
+    history.push(`/country/${ slugify(name, {remove: /[*+~'"!:@]/g,}) }`);
   }
   return (
     <CountryStyled onClick={handleClick}>

@@ -23,10 +23,12 @@ const HeaderStyled = styled.header`
     }
   }
   .darkmode {
+    font-weight: 600;
     p {
       display: flex;
       align-items: center;
       font-size: 14px;
+      cursor: pointer;
     }
     .darkmode__icon {
       transform: rotate(-25deg);
@@ -38,10 +40,23 @@ const HeaderStyled = styled.header`
       align-items: center;
     }
   }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 3em;
+    h1 {
+      font-size: 1.5em;
+    }
+    .darkmode {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 `;
 
-function Header() {
-  function handleClick() {}
+function Header({ setDarkMode, darkMode }) {
+  function handleClick() {
+    setDarkMode(!darkMode);
+  }
   return (
     <HeaderStyled>
       <Wrapper>
@@ -52,7 +67,7 @@ function Header() {
           <div className="darkmode">
             <p onClick={handleClick}>
               <span className="darkmode__icon">
-                <i className="fp-moon-light"></i>
+                <i className={ `fp-moon-${ darkMode ? "dark" : "light" }`}></i>
               </span>
               Dark Mode
             </p>
