@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
 
-const RegionFilterStyled = styled.div`
-
+const RegionFilterStyled = styled.select`
+  height: 48px;
+  padding: 0 1em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 9px 0px rgba(0,0,0,0.05);
 `;
 
 function RegionFilter() {
@@ -18,15 +22,13 @@ function RegionFilter() {
     })
   }
   
-  return <RegionFilterStyled>
-    <select value={region} onChange={handleChange}>
+  return <RegionFilterStyled value={region} onChange={handleChange}>
       <option value="none">Filter by Region</option>
       <option value="Africa">Africa</option>
       <option value="Americas">America</option>
       <option value="Asia">Asia</option>
       <option value="Europe">Europa</option>
       <option value="Oceania">Oceania</option>
-    </select>
   </RegionFilterStyled>;
 }
 
