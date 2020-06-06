@@ -36,11 +36,11 @@ const CountryStyled = styled.div`
   }
 `;
 
-function Country({ flag, name, population, region, capital }) {
+function Country({ flag, name, population, region, capital, alpha2Code}) {
   const history = useHistory();
 
   function handleClick() {
-    history.push(`/country/${ slugify(name, {remove: /[*+~'"!:@]/g,}) }`);
+    history.push(`/country/${alpha2Code.toLowerCase()}`);
   }
   return (
     <CountryStyled onClick={handleClick}>

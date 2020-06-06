@@ -55,7 +55,7 @@ function CountryList() {
         <div className="row">
           {countryList.length > 0 ? (
             countryList.map(
-              ({ name, population, flag, region, capital, numericCode }) => {
+              ({ name, population, flag, region, capital, numericCode, alpha2Code }) => {
                 return (
                   <Country
                     key={numericCode}
@@ -64,6 +64,7 @@ function CountryList() {
                     population={population}
                     region={region}
                     capital={capital}
+                    alpha2Code={alpha2Code}
                   />
                 );
               }
