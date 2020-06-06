@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -10,13 +9,49 @@ import Wrapper from "./wrapper";
 
 const CountryPageStyled = styled.div`
   .row {
-    padding: 0 0.5em;
+    padding: 1.2em 0em;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .back {
+    background-color: var(--white);
+    color: var(--black);
+    box-shadow: 0 2px 9px 0px rgba(0,0,0,0.25);
+    border: none;
+    padding: 0.7em 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    margin-bottom: 5em;
+    cursor: pointer;
+    outline: none;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out ;
+    :hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 5px 0px rgba(0,0,0,0.25);
+    }
+    :focus,
+    :active {
+      border: none;
+      transform: translateY(0px);
+      box-shadow: 0 0 5px 0px rgba(0,0,0,0.15);
+      transition: transform .1s ease-in-out, box-shadow .1s ease-in-out ;
+    }
+    i {
+      margin-right: 10px;
+      font-size: 1.2em;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .row {
+      max-width: 100%;
+    }
   }
 `;
 
-function CountryPage({ match }) {
+function CountryPage({ match, history }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const country = useSelector((state) => state.country);
 
   useEffect(() => {
@@ -38,7 +73,7 @@ function CountryPage({ match }) {
   }, []);
 
   function handleClick() {
-    history.push("/");
+    history.goBack();
     dispatch({
       type: "GET_COUNTRY",
       payload: [],
@@ -49,7 +84,7 @@ function CountryPage({ match }) {
     <CountryPageStyled>
       <Wrapper>
         <div className="row">
-          <button to="/" onClick={handleClick}>
+          <button className="back" to="/" onClick={handleClick}>
             <i className="fp-long-arrow-left"></i>Back
           </button>
 
